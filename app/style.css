@@ -25,6 +25,25 @@ p {
     margin-top: 0;
 }
 
+button {
+    width: 150px;
+    height: 75px;
+    margin: 50px 75px 66px;
+    background-color: #201E1F;
+    border: 1px solid black;
+    border-radius: 15px;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+}
+
+
+button:hover {
+    border: 1px solid #F44788;
+    box-shadow: 0 0 20px #F44788;
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
 .welcome-msg {
     margin-bottom: 30px;
 }
@@ -73,8 +92,4 @@ p {
     width: 800px;
     font-size: 20px;
     font-style: italic;
-}
-
-.disable {
-    
 }

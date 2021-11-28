@@ -82,14 +82,20 @@ scissors.addEventListener('click', () => {
 // Game over
 function gameOver(playerScore, computerScore) {
     if (playerScore >= 5) {
+        document.querySelector('.rps-btns').innerHTML = '<button type="button" onClick="resetGame()">Play Again!</button>';
         update.style.cssText = 'font-size: 26px; color: #F44788;';
         return update.textContent = `Way to go! $${prizeMoney},000,000 will be desposited into your account!`;
     } else if (computerScore >= 5) {
+        document.querySelector('.rps-btns').innerHTML = '<button type="button" onClick="resetGame()">Play Again!</button>';
         update.style.cssText = 'font-size: 26px; color: #F44788;';
         return update.textContent = `Looks like you're going home empty handed. Better luck next time!`;
     } else {
         return update;
     }
+}
+
+function resetGame() {
+    window.location.reload();
 }
 
 function playRound() {
