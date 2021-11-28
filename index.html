@@ -4,37 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Rock Paper Scissors</title>
+
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet"> 
-    
+
     <link rel="stylesheet" href="app/style.css" />
     <script defer src="/app/script.js"></script>
 </head>
 <body>
-    <img class="sg-logo" src="images/squidgame_logo.png" alt="Squid Games logo">
-    <img class="welcome-msg" src="images/final_game.png" alt="Welcome to the final game">
-    <h2>Welcome player XXX (randomly generated 3 numbers). Congratulations for making it this far.</h2>
-    <h2>In order to win your handsome cash prize, you must beat the Front Man in a game of Rock, Paper, Scissors.</h2>
-    <p>First to 5 wins...</p>
-    <div class="rps-game">
-        <div class="rock">
-            <img src="images/rock.svg" alt="">
-            <p>Rock</p>
+    <main>
+        <img class="sg-logo" src="images/squidgame_logo.png" alt="Squid Games logo">
+        <img class="final-game" src="images/final_game.png" alt="The final game">
+        <h2 class="welcome-msg">Welcome player <span class="player-num"></span>. Congratulations on making it this far.<br>
+        In order to win your handsome cash prize, you must beat the Front Man in a game of Rock, Paper, Scissors.</h2>
+        <p>First to 5 wins...</p>
+        <div class="rps-btns">
+            <div class="rock">
+                <img class="playerChoice rock__btn" src="images/rock.svg" alt="">
+                <p>Rock</p>
+            </div>
+            <div class="paper">
+                <img class="playerChoice paper__btn" src="images/paper.svg" alt="">
+                <p>Paper</p>
+            </div>
+            <div class="scissors">
+                <img class="playerChoice scissors__btn" src="images/scissors.svg" alt="">
+                <p>Scissors</p>
+            </div>
         </div>
-        <div class="paper">
-            <img src="images/paper.svg" alt="">
-            <p>Paper</p>
+        <div class="score">
+            <div>
+                <h2>Player <span class="player-num"></span></h2>
+                <h1 class="score__player">0</h2>
+            </div>
+            <div>
+                <h2>Front Man</h2>
+                <h1 class="score__frontman">0</h2>
+            </div>
         </div>
-        <div class="scissors">
-            <img src="images/scissors.svg" alt="">
-            <p>Scissors</p>
+        <div class="status">
+            <p class="update"></p>
         </div>
-    </div>
-    <div class="score">
-
-    </div>
+    </main>
 </body>
 </html>
