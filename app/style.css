@@ -36,7 +36,6 @@ button {
     color: white;
 }
 
-
 button:hover {
     border: 1px solid #F44788;
     box-shadow: 0 0 20px #F44788;
@@ -63,6 +62,7 @@ button:hover {
     column-gap: 30px;
     text-align: center;
 }
+
 .rps-btns img {
     margin-bottom: 0;
     border: 1px solid black;

@@ -10,7 +10,7 @@ let playerSelection = '';
 let getPlayerNum = 0;
 let prizeMoney = 0;
 
-// Randomly picks option for computer
+// Randomly pick option for computer
 function computerPlay() {
     let computerSelection = Math.floor(Math.random() * 3);
     return options[computerSelection];
@@ -39,7 +39,7 @@ function prize(min, max) {
 
 prizeMoney = prize();
 
-// Takes players selection, compares it to 'computerPlay' function then returns if player won or loss
+// Take players selection, compare it to 'computerPlay' then return winner
 function keepScore(playerSelection, computerSelection) {
     if (playerSelection.toUpperCase() === 'ROCK' && computerSelection === 'Scissors') {
         playerScore++;
@@ -64,7 +64,6 @@ function keepScore(playerSelection, computerSelection) {
     }
 }
 
-// Turn images into buttons and return playerSelection for each button
 rock.addEventListener('click', () => {
     playerSelection = 'Rock';
     playRound();
@@ -79,7 +78,6 @@ scissors.addEventListener('click', () => {
     playRound()
 });
 
-// Game over
 function gameOver(playerScore, computerScore) {
     if (playerScore >= 5) {
         document.querySelector('.rps-btns').innerHTML = '<button type="button" onClick="resetGame()">Play Again!</button>';
