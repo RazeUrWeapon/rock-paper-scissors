@@ -3,6 +3,8 @@ const rock = document.querySelector('.rock__btn');
 const paper = document.querySelector('.paper__btn');
 const scissors = document.querySelector('.scissors__btn');
 const update = document.querySelector('.update');
+const userScore = document.querySelector('.score__player');
+const frontmanScore = document.querySelector('.score__frontman');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -30,7 +32,7 @@ document.querySelectorAll('.player-num').forEach(num => {
     num.textContent = getPlayerNum;
 });
 
-// Generate number for prize shown at end of game
+// Generate random number for prize shown at end of game
 function prize(min, max) {
     min = Math.ceil(10);
     max = Math.floor(99);
@@ -99,7 +101,7 @@ function resetGame() {
 function playRound() {
     computerSelection = computerPlay();
     keepScore(playerSelection, computerSelection);
-    document.querySelector('.score__frontman').textContent = computerScore;
-    document.querySelector('.score__player').textContent = playerScore;
+    frontmanScore.textContent = computerScore;
+    userScore.textContent = playerScore;
     gameOver(playerScore, computerScore);
 }
