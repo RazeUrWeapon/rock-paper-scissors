@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
     
     <title>The Final Game</title>
 
@@ -20,9 +20,9 @@
     <main>
         <img class="sg-logo" src="images/squidgame_logo.png" alt="Squid Games logo">
         <img class="final-game" src="images/final_game.png" alt="The final game">
-        <h2 class="welcome-msg">Welcome player <span class="player-num"></span>. Congratulations on making it this far. In order to win your handsome cash prize, you must beat the Front Man in a game of Rock, Paper, Scissors.</h2>
+        <h2 class="welcome-msg">Welcome Player <span class="player-num"></span>. Congratulations on making it this far. In order to win your handsome cash prize, you must beat the Front Man in a game of Rock, Paper, Scissors.</h2>
         <p class="rules">First to 5 wins...</p>
-        <div class="rps-btns">
+        <div class="options">
             <div class="rock">
                 <img class="playerChoice rock__btn" src="images/rock.svg" alt="rock button">
                 <p>Rock</p>
@@ -35,6 +35,7 @@
                 <img class="playerChoice scissors__btn" src="images/scissors.svg" alt="scissors button">
                 <p>Scissors</p>
             </div>
+            <button class="reset-game hide">Play Again!</button>
         </div>
         <div class="score">
             <div>
@@ -48,6 +49,7 @@
         </div>
         <div class="status">
             <p class="update"></p>
+            <p class="gameover-update hide"></p>
         </div>
     </main>
 </body>

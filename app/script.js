@@ -1,11 +1,13 @@
 const options = ['Rock', 'Paper', 'Scissors'];
-const optionsSection = document.querySelector('.rps-btns');
-const rock = document.querySelector('.rock__btn');
-const paper = document.querySelector('.paper__btn');
-const scissors = document.querySelector('.scissors__btn');
-const update = document.querySelector('.update');
+const optionsSection = document.querySelector('.options');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 const userScore = document.querySelector('.score__player');
 const frontmanScore = document.querySelector('.score__frontman');
+const resetButton = document.querySelector('.reset-game');
+const update = document.querySelector('.update');
+const gameoverUpdate = document.querySelector('.gameover-update');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -42,33 +44,70 @@ function prize(min, max) {
 
 prizeMoney = prize();
 
+// Toggles which elements show for end of game
+function toggleHide() {
+    rock.classList.toggle('hide');
+    paper.classList.toggle('hide');
+    scissors.classList.toggle('hide');
+    resetButton.classList.toggle('hide');
+    update.classList.toggle('hide');
+    gameoverUpdate.classList.toggle('hide');
+}
+
 function resetGame() {
-    window.location.reload();
+    toggleHide();
+    prize();
+    prizeMoney = prize();
+    playerScore = 0;
+    computerScore = 0;
+    userScore.textContent = '0';
+    frontmanScore.textContent = '0';
+    update.textContent = '';
 }
 
 // Take players selection, compare it to 'computerPlay' then return winner
 function keepScore(playerSelection, computerSelection) {
     if (playerSelection.toUpperCase() === 'ROCK' && computerSelection === 'Scissors') {
         playerScore++;
-        return update.textContent = 'The Front Man picked Scissors, you win this round!';
+        update.textContent = 'The Front Man picked Scissors, you win this round!';
     } else if (playerSelection.toUpperCase() === 'ROCK' && computerSelection === 'Paper') {
         computerScore++;
-        return update.textContent = 'The Front Man picked Paper, you lose this round!';
+        update.textContent = 'The Front Man picked Paper, you lose this round!';
     } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection === 'Rock') {
         playerScore++;
-        return update.textContent = 'The Front Man picked Rock, you win this round!';
+        update.textContent = 'The Front Man picked Rock, you win this round!';
     } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection === 'Scissors') {
         computerScore++;
-        return update.textContent = 'The Front Man picked Scissors, you lose this round!';
+        update.textContent = 'The Front Man picked Scissors, you lose this round!';
     } else if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'Rock') {
         computerScore++;
-        return update.textContent = 'The Front Man picked Rock, you lose this round!';
+        update.textContent = 'The Front Man picked Rock, you lose this round!';
     } else if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'Paper') {
         playerScore++;
-        return update.textContent = 'The Front Man picked Paper, you win this round!';
+        update.textContent = 'The Front Man picked Paper, you win this round!';
     } else {
-        return update.textContent = `The Front Man also picked ${playerSelection}. Go again!`;
+        update.textContent = `The Front Man also picked ${playerSelection}. Go again!`;
     }
+}
+
+function gameOver(playerScore, computerScore) {
+    if (playerScore === 5) {
+        toggleHide();
+        gameoverUpdate.textContent = `Way to go! $${prizeMoney},000,000 will be desposited into your account!`;
+    } else if (computerScore === 5) {
+        toggleHide();
+        gameoverUpdate.textContent = `Looks like you're going home empty handed. Better luck next time!`;
+    } else {
+        return update;
+    }
+}
+
+function playRound() {
+    computerSelection = computerPlay();
+    keepScore(playerSelection, computerSelection);
+    frontmanScore.textContent = computerScore;
+    userScore.textContent = playerScore;
+    gameOver(playerScore, computerScore);
 }
 
 rock.addEventListener('click', () => {
@@ -85,24 +124,4 @@ scissors.addEventListener('click', () => {
     playRound()
 });
 
-function gameOver(playerScore, computerScore) {
-    if (playerScore >= 5) {
-        optionsSection.innerHTML = '<button type="button" onClick="resetGame()">Play Again!</button>';
-        update.style.cssText = 'font-size: 26px; color: #F44788;';
-        return update.textContent = `Way to go! $${prizeMoney},000,000 will be desposited into your account!`;
-    } else if (computerScore >= 5) {
-        optionsSection.innerHTML = '<button type="button" onClick="resetGame()">Play Again!</button>';
-        update.style.cssText = 'font-size: 26px; color: #F44788;';
-        return update.textContent = `Looks like you're going home empty handed. Better luck next time!`;
-    } else {
-        return update;
-    }
-}
-
-function playRound() {
-    computerSelection = computerPlay();
-    keepScore(playerSelection, computerSelection);
-    frontmanScore.textContent = computerScore;
-    userScore.textContent = playerScore;
-    gameOver(playerScore, computerScore);
-}
+resetButton.addEventListener('click', resetGame);
