@@ -3,7 +3,7 @@
 ### Table of contents
 - [Project Description](#project-description)
 - [Tech Used](#tech-used)
-- [Features](#featuers)
+- [Features](#features)
 - [Credits](#credits)
 - [Connect with me](#connect-with-me)
 
