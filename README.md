@@ -59,10 +59,10 @@
     }
 ```
 - On game end: 
-    - hides selection buttons
-    - displays play again button
-    - resets all variables
-    - re-runs prize function for a new prize
+    - Hides selection buttons
+    - Displays play again button
+    - Resets all variables
+    - Re-runs prize function for a new prize
 ``` javascript
     function toggleHide() {
         rock.classList.toggle('hide');
